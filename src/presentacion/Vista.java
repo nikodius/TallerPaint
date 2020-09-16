@@ -533,7 +533,7 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_BlueActionPerformed
 
     private void btnRectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRectaActionPerformed
-        // TODO add your handling code here:
+        this.controlador.setFiguraActual(FigurasEnum.RECTA);
     }//GEN-LAST:event_btnRectaActionPerformed
 
     /**
