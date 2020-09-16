@@ -1,6 +1,6 @@
 
 import java.awt.Color;
-import vista.Vista;
+import presentacion.Vista;
 
 public class Launcher {
 

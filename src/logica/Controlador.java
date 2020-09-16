@@ -1,5 +1,4 @@
-
-package vista;
+package logica;
 
 import java.awt.BasicStroke;
 import java.awt.Canvas;
@@ -7,16 +6,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
 import java.util.List;
+import persistencia.FigurasEnum;
 
 public class Controlador extends Canvas implements MouseListener, MouseMotionListener {
 

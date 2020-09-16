@@ -1,5 +1,5 @@
 
-package vista;
+package persistencia;
 
 public enum FigurasEnum {
     LAPIZ, CIRCULO, RECTANGULO;
