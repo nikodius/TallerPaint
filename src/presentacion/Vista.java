@@ -8,6 +8,7 @@ package presentacion;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.ImageIcon;
 import logica.Controlador;
 import persistencia.FigurasEnum;
 
@@ -24,6 +25,8 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         initComponents();
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/imagenes/logo_paleta.png"));
+        this.setIconImage(img.getImage());
         controlador = new Controlador();
         controlador.setBounds(40, 80, 600, 400);
         controlador.addMouseListener(new MouseListener() {
