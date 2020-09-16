@@ -84,6 +84,7 @@ public class Vista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         btnCuadrado = new javax.swing.JButton();
+        btnRecta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -136,6 +137,13 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        btnRecta.setText("Recta");
+        btnRecta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRectaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,7 +165,8 @@ public class Vista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCuadrado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCirculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDibujar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDibujar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRecta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -172,8 +181,10 @@ public class Vista extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbmColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(btnDibujar)
+                .addGap(18, 18, 18)
+                .addComponent(btnRecta)
                 .addGap(18, 18, 18)
                 .addComponent(btnCirculo)
                 .addGap(18, 18, 18)
@@ -207,6 +218,10 @@ public class Vista extends javax.swing.JFrame {
     private void btnCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuadradoActionPerformed
         this.controlador.setFiguraActual(FigurasEnum.RECTANGULO);
     }//GEN-LAST:event_btnCuadradoActionPerformed
+
+    private void btnRectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRectaActionPerformed
+        this.controlador.setFiguraActual(FigurasEnum.RECTA);
+    }//GEN-LAST:event_btnRectaActionPerformed
 
     /**
                  * @param args the command line arguments
@@ -249,6 +264,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnCirculo;
     private javax.swing.JButton btnCuadrado;
     private javax.swing.JButton btnDibujar;
+    private javax.swing.JButton btnRecta;
     private javax.swing.JComboBox<String> cbmColor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
