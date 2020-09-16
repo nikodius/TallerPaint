@@ -10,7 +10,6 @@ public class Launcher {
         vista.setBounds(20, 40, 800, 600);
         vista.getContentPane().setBackground(Color.LIGHT_GRAY);
         vista.setVisible(true);
-        //Prueba commit
     }
     
 }
