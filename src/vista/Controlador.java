@@ -18,7 +18,6 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Controlador extends Canvas implements MouseListener, MouseMotionListener {
 
     private List<Point> points;
@@ -53,12 +52,13 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+        
         this.puntoInicial = e.getPoint();
+        
         if (this.figuraActual == FigurasEnum.LAPIZ) {
             this.lienzo.moveTo(e.getX(), e.getY());
         }
@@ -66,6 +66,7 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        
         this.dx = (int) (e.getPoint().getX() - this.puntoInicial.getX());
         this.dy = (int) (e.getPoint().getY() - this.puntoInicial.getY());
 

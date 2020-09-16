@@ -44,9 +44,9 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnCuadrado" max="32767" attributes="0"/>
                   <Component id="btnCirculo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnDibujar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnDibujar" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,13 +65,13 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace pref="218" max="32767" attributes="0"/>
               <Component id="btnDibujar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCirculo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCuadrado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
