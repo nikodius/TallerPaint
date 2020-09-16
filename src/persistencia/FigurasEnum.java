@@ -2,5 +2,5 @@
 package persistencia;
 
 public enum FigurasEnum {
-    LAPIZ, CIRCULO, RECTANGULO;
+    LAPIZ, RECTA, CIRCULO, RECTANGULO;
 }

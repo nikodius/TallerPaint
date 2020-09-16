@@ -44,7 +44,8 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnCuadrado" max="32767" attributes="0"/>
                   <Component id="btnCirculo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnDibujar" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                  <Component id="btnDibujar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnRecta" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -65,8 +66,10 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="218" max="32767" attributes="0"/>
+              <EmptySpace pref="177" max="32767" attributes="0"/>
               <Component id="btnDibujar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnRecta" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCirculo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -146,6 +149,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCuadradoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRecta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Recta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRectaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

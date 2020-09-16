@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 import java.util.List;
@@ -53,9 +54,9 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
         this.puntoInicial = e.getPoint();
-        
+
         if (this.figuraActual == FigurasEnum.LAPIZ) {
             this.lienzo.moveTo(e.getX(), e.getY());
         }
@@ -63,7 +64,7 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
         this.dx = (int) (e.getPoint().getX() - this.puntoInicial.getX());
         this.dy = (int) (e.getPoint().getY() - this.puntoInicial.getY());
 
@@ -84,6 +85,8 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
             } else {
                 this.lienzo.append(new Rectangle2D.Double(this.puntoInicial.getX(), (int) this.puntoInicial.getY(), Math.abs(dx), Math.abs(dy)), false);
             }
+        } else if (this.figuraActual == FigurasEnum.RECTA) {
+            this.lienzo.append(new Line2D.Double(this.puntoInicial.getX(), this.puntoInicial.getY(), this.puntoFinal.getX(), this.puntoFinal.getY()), false);
         }
 
         repaint();
@@ -124,6 +127,8 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
             } else {
                 this.getGraphics().drawRect((int) this.puntoInicial.getX(), (int) this.puntoInicial.getY(), Math.abs(dx), Math.abs(dy));
             }
+        } else if (this.figuraActual == FigurasEnum.RECTA) {
+            this.getGraphics().drawLine((int) this.puntoInicial.getX(), (int) this.puntoInicial.getY(), (int) this.puntoFinal.getX(), (int) this.puntoFinal.getY());
         }
         repaint();
 
