@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
 import java.awt.BasicStroke;
@@ -22,10 +18,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Niko
- */
+
 public class Controlador extends Canvas implements MouseListener, MouseMotionListener {
 
     private List<Point> points;
