@@ -1,16 +1,17 @@
 
-import java.awt.Color;
-import presentacion.Vista;
+import presentacion.Modelo;
 
 public class Launcher {
 
+    private Modelo modeloApp;
+    
     public static void main(String[] args) {
-        //Crear nueva vista y caracteristicas
-        Vista vista = new Vista();
-        vista.setBounds(20, 40, 800, 600);
-        vista.getContentPane().setBackground(Color.LIGHT_GRAY);
-        //Lanzar vista
-        vista.setVisible(true);
+       new Launcher();
     }
+    
+    public Launcher() {
+        modeloApp = new Modelo();
+        modeloApp.iniciar();        
+    }   
     
 }

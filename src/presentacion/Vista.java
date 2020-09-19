@@ -2,28 +2,40 @@
 package presentacion;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.ImageIcon;
-import logica.Controlador;
-import persistencia.FigurasEnum;
+import logica.FigurasEnum;
 
 public class Vista extends javax.swing.JFrame {
 
     private Controlador controlador;
+    private final Modelo modelo;
 
-    public Vista() {      
+    public Vista(Modelo modelo) { 
+        this.modelo = modelo;
+        controlador = getControl();
         initComponents();
+        iniciarEventos();
+        //titulo e icono aplicacion
         ImageIcon img = new ImageIcon(this.getClass().getResource("/imagenes/logo_paleta.png"));
         this.setIconImage(img.getImage());     
         this.setTitle("Paint / Informatica 1 / Taller 1");
-        controlador = new Controlador();
-        controlador.setBounds(95, 90, 677, 401);
+    }
+    
+    public Controlador getControl() {
+        if(controlador == null){
+            controlador = new Controlador(this);
+        }
+        return controlador;
+    }
+    
+    private void iniciarEventos(){
+        getControl().setBounds(95, 90, 677, 401);
         jLabel_Select.setOpaque(true);
         
-        controlador.addMouseListener(new MouseListener() {
+        getControl().addMouseListener(new MouseListener() {
            
             @Override
             // Se invoca después de presionar y soltar un botón del mouse en un mismo punto.
@@ -34,13 +46,13 @@ public class Vista extends javax.swing.JFrame {
             @Override
             //Se invocauna vez cada vez que se presiona un botón del mouse. 
             public void mousePressed(MouseEvent e) {
-                controlador.mousePressed(e);
+                getControl().mousePressed(e);
             }
 
             @Override
             //Se invoca cada vez que se suelta un botón del mouse
             public void mouseReleased(MouseEvent e) {
-                controlador.mouseReleased(e);
+                getControl().mouseReleased(e);
             }
 
             @Override
@@ -57,15 +69,16 @@ public class Vista extends javax.swing.JFrame {
 
         });
         
-        controlador.addMouseMotionListener(new MouseMotionAdapter() {
+        getControl().addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             //Se invoca una vez cada vez que el mouse se mueve mientras se presiona un botón del mouse.
             public void mouseDragged(MouseEvent e) {
-                controlador.mouseDragged(e);
+                getControl().mouseDragged(e);
             }
         });
-        this.add(controlador);
+        this.add(getControl());
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -545,132 +558,103 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDibujarActionPerformed
-        this.controlador.setFiguraActual(FigurasEnum.LAPIZ);
+        modelo.getSistema().getDibujo().setFiguraActual(FigurasEnum.LAPIZ);
     }//GEN-LAST:event_btnDibujarActionPerformed
 
     private void btnLimpiar_PantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar_PantActionPerformed
-        this.controlador.Limpiar_Pant();
+        getControl().Limpiar_Pant();
     }//GEN-LAST:event_btnLimpiar_PantActionPerformed
 
     private void btnCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCirculoActionPerformed
-        this.controlador.setFiguraActual(FigurasEnum.CIRCULO);
+        modelo.getSistema().getDibujo().setFiguraActual(FigurasEnum.CIRCULO);
     }//GEN-LAST:event_btnCirculoActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        this.controlador.setGrosorLinea(jSlider1.getValue());
+        modelo.getSistema().getDibujo().setGrosorLinea(jSlider1.getValue());
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void btnCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuadradoActionPerformed
-        this.controlador.setFiguraActual(FigurasEnum.RECTANGULO);
+        modelo.getSistema().getDibujo().setFiguraActual(FigurasEnum.RECTANGULO);
     }//GEN-LAST:event_btnCuadradoActionPerformed
 
     private void jButton_WhiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WhiteActionPerformed
         jLabel_Select.setBackground(Color.WHITE);
-        this.controlador.setColor(Color.WHITE);
+        modelo.getSistema().getDibujo().setColor(Color.WHITE);
     }//GEN-LAST:event_jButton_WhiteActionPerformed
 
     private void jButton_BrownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BrownActionPerformed
         jLabel_Select.setBackground(new Color(102,0,0));
-        this.controlador.setColor(new Color(102,0,0));
+        modelo.getSistema().getDibujo().setColor(new Color(102,0,0));
     }//GEN-LAST:event_jButton_BrownActionPerformed
 
     private void jButton_BlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BlackActionPerformed
         jLabel_Select.setBackground(Color.BLACK);
-        this.controlador.setColor(Color.BLACK);
+        modelo.getSistema().getDibujo().setColor(Color.BLACK);
     }//GEN-LAST:event_jButton_BlackActionPerformed
 
     private void jButton_Light_GrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Light_GrayActionPerformed
         jLabel_Select.setBackground(Color.LIGHT_GRAY);
-        this.controlador.setColor(Color.LIGHT_GRAY);
+        modelo.getSistema().getDibujo().setColor(Color.LIGHT_GRAY);
     }//GEN-LAST:event_jButton_Light_GrayActionPerformed
 
     private void jButton_Dark_GrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Dark_GrayActionPerformed
         jLabel_Select.setBackground(Color.DARK_GRAY);
-        this.controlador.setColor(Color.DARK_GRAY);
+        modelo.getSistema().getDibujo().setColor(Color.DARK_GRAY);
     }//GEN-LAST:event_jButton_Dark_GrayActionPerformed
 
     private void jButton_GoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GoldActionPerformed
         jLabel_Select.setBackground(new Color(204,153,0));
-        this.controlador.setColor(new Color(204,153,0));
+        modelo.getSistema().getDibujo().setColor(new Color(204,153,0));
     }//GEN-LAST:event_jButton_GoldActionPerformed
 
     private void jButton_RedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RedActionPerformed
         jLabel_Select.setBackground(Color.RED);
-        this.controlador.setColor(Color.RED);
+        modelo.getSistema().getDibujo().setColor(Color.RED);
     }//GEN-LAST:event_jButton_RedActionPerformed
 
     private void jButton_PinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PinkActionPerformed
         jLabel_Select.setBackground(Color.PINK);
-        this.controlador.setColor(Color.PINK);
+        modelo.getSistema().getDibujo().setColor(Color.PINK);
     }//GEN-LAST:event_jButton_PinkActionPerformed
 
     private void jButton_OrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OrangeActionPerformed
         jLabel_Select.setBackground(Color.ORANGE);
-        this.controlador.setColor(Color.ORANGE);
+        modelo.getSistema().getDibujo().setColor(Color.ORANGE);
     }//GEN-LAST:event_jButton_OrangeActionPerformed
 
     private void jButton_YellowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_YellowActionPerformed
         jLabel_Select.setBackground(Color.YELLOW);
-        this.controlador.setColor(Color.YELLOW);
+        modelo.getSistema().getDibujo().setColor(Color.YELLOW);
     }//GEN-LAST:event_jButton_YellowActionPerformed
 
     private void jButton_GreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GreenActionPerformed
         jLabel_Select.setBackground(Color.GREEN);
-        this.controlador.setColor(Color.GREEN);
+        modelo.getSistema().getDibujo().setColor(Color.GREEN);
     }//GEN-LAST:event_jButton_GreenActionPerformed
 
     private void jButton_MagentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_MagentaActionPerformed
         jLabel_Select.setBackground(Color.MAGENTA);
-        this.controlador.setColor(Color.MAGENTA);
+        modelo.getSistema().getDibujo().setColor(Color.MAGENTA);
     }//GEN-LAST:event_jButton_MagentaActionPerformed
 
     private void jButton_CyanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CyanActionPerformed
         jLabel_Select.setBackground(Color.CYAN);
-        this.controlador.setColor(Color.CYAN);
+        modelo.getSistema().getDibujo().setColor(Color.CYAN);
     }//GEN-LAST:event_jButton_CyanActionPerformed
 
     private void jButton_BlueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BlueActionPerformed
         jLabel_Select.setBackground(Color.BLUE);
-        this.controlador.setColor(Color.BLUE);
+        modelo.getSistema().getDibujo().setColor(Color.BLUE);
     }//GEN-LAST:event_jButton_BlueActionPerformed
 
     private void btnRectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRectaActionPerformed
-        this.controlador.setFiguraActual(FigurasEnum.RECTA);
+        modelo.getSistema().getDibujo().setFiguraActual(FigurasEnum.RECTA);
     }//GEN-LAST:event_btnRectaActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBorrarActionPerformed
 
-    public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
@@ -716,4 +700,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
 
+    public Modelo getModelo() {
+        return modelo;
+    }
 }
