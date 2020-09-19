@@ -1,16 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package persistencia;
 
 import java.io.File;
 import java.util.Vector;
 
 /**
- *
- * @author oaromerov
+ * Clase para persistencia (pendiente por implementar)
  */
 public abstract class DatosDTO {
     protected static File archivo;

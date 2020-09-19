@@ -2,9 +2,10 @@ package logica;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.awt.geom.Path2D;
 
-
+/**
+ * clase parametros dibujo 
+ */
 public class Dibujo {
     
     private Color color;
