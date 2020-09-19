@@ -111,26 +111,22 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
             case CIRCULO: 
                 if (dx < 0 || dy < 0) {
                     this.getGraphics().drawOval((int) vista.getModelo().getSistema().getDibujo().getPuntoFinal().getX(), (int) vista.getModelo().getSistema().getDibujo().getPuntoFinal().getY(), Math.abs(dx), Math.abs(dy));
-//                    pausa();
                 } else {
                     this.getGraphics().drawOval((int) vista.getModelo().getSistema().getDibujo().getPuntoInicial().getX(), (int) vista.getModelo().getSistema().getDibujo().getPuntoInicial().getY(), Math.abs(dx), Math.abs(dy));
-//                    pausa();
                 }   break;
             case RECTANGULO:
                 if (dx < 0 || dy < 0) {
                     this.getGraphics().drawRect((int) vista.getModelo().getSistema().getDibujo().getPuntoFinal().getX(), (int) vista.getModelo().getSistema().getDibujo().getPuntoFinal().getY(), Math.abs(dx), Math.abs(dy));
-//                    pausa();
                 } else {
                     this.getGraphics().drawRect((int) vista.getModelo().getSistema().getDibujo().getPuntoInicial().getX(), (int) vista.getModelo().getSistema().getDibujo().getPuntoInicial().getY(), Math.abs(dx), Math.abs(dy));
-//                    pausa();
                 }   break;
             case RECTA:
                 this.getGraphics().drawLine((int) vista.getModelo().getSistema().getDibujo().getPuntoInicial().getX(), (int) vista.getModelo().getSistema().getDibujo().getPuntoInicial().getY(), (int) vista.getModelo().getSistema().getDibujo().getPuntoFinal().getX(), (int) vista.getModelo().getSistema().getDibujo().getPuntoFinal().getY());
-//                pausa();
                 break;
             default:
                 break;
         }
+        pausa();
         repaint();
     }
 
@@ -139,14 +135,14 @@ public class Controlador extends Canvas implements MouseListener, MouseMotionLis
     public void mouseMoved(MouseEvent e) {
     }
 
-    // Limpia todo el lienzo
+// Limpia todo el lienzo
     public void Limpiar_Pant() {
         vista.getModelo().getSistema().getLienzo().reset();
         repaint();
     }
     
     public void pausa(){
-        //Pausa visualizar trazo en tiempo real 
+//Pausa visualizar trazo en tiempo real 
         try {
             Thread.sleep(5);
             repaint();

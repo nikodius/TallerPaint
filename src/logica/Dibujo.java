@@ -6,13 +6,13 @@ import java.awt.geom.Path2D;
 
 
 public class Dibujo {
+    
     private Color color;
     private Color colorFondo;
     private int grosorLinea;
     private Point puntoInicial, puntoFinal;
     private FigurasEnum figuraActual;
     
-
     public Dibujo() {
         this.color = Color.black;
         this.colorFondo = Color.white;
